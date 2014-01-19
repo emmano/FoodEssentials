@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <View android:layout_width="match_parent"
+          android:layout_height="200dp"
+          android:background="#88ce00"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username"
+            android:id="@+id/drawer_list_view_header_username"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="#FFF"
+            android:background="#50000000"
+            android:padding="5dp"
+            />
+
+
+</RelativeLayout>
