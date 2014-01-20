@@ -1,4 +1,4 @@
-package com.foodessentials.utils;
+package com.foodessentials.utils.zxing;
 
 /*
  * Copyright 2009 ZXing authors

@@ -2,8 +2,8 @@ package com.foodessentials.app;
 
 import com.foodessentials.R;
 import com.foodessentials.labelapi.api.LabelApiCallback;
-import com.foodessentials.utils.IntentIntegrator;
-import com.foodessentials.utils.IntentResult;
+import com.foodessentials.utils.zxing.IntentIntegrator;
+import com.foodessentials.utils.zxing.IntentResult;
 import com.foodessentials.utils.labelapi.Product;
 import com.foodessentials.utils.labelapi.ProductParser;
 
@@ -16,7 +16,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageButton;
