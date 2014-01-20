@@ -20,4 +20,6 @@ public class UserFoodFragment extends Fragment {
             Bundle savedInstanceState) {
         return inflater.inflate(R.layout.user_food_fragment_layout, container, false);
     }
+
+
 }

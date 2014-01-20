@@ -4,6 +4,8 @@ import com.foodessentials.R;
 import com.foodessentials.labelapi.api.LabelApiCallback;
 import com.foodessentials.utils.IntentIntegrator;
 import com.foodessentials.utils.IntentResult;
+import com.foodessentials.utils.labelapi.Product;
+import com.foodessentials.utils.labelapi.ProductParser;
 
 import org.json.JSONObject;
 
@@ -14,6 +16,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -26,6 +31,7 @@ public class ScanFragment extends Fragment implements LabelApiCallback, View.OnC
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+       // setHasOptionsMenu(true);
 
 
     }
@@ -58,15 +64,29 @@ public class ScanFragment extends Fragment implements LabelApiCallback, View.OnC
             Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.scan_fragment_layout, container, false);
         ImageButton btn = (ImageButton) rootView.findViewById(R.id.scan_me_button);
+        AlphaAnimation animation = new AlphaAnimation(0.5f,1.0f);
+        animation.setDuration(1000);
+        animation.setRepeatMode(Animation.REVERSE);
+        animation.setRepeatCount(Animation.INFINITE);
+        btn.startAnimation(animation);
         btn.setOnClickListener(this);
         return rootView;
     }
+
+  /*  @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.scan_fragment_menu,menu);
+
+    }*/
 
 
     @Override
     public void onResult(JSONObject object, String error) {
         if (error == null) {
             Toast.makeText(getActivity(), object.toString(), Toast.LENGTH_LONG).show();
+            Product product= ProductParser.parseProduct(object);
+            Toast.makeText(getActivity(),product.mNutrients.get(0).nutrientName,Toast.LENGTH_LONG).show();
+            Log.e("RESULT", object.toString());
         } else {
             Log.e("ERROR", error);
         }
