@@ -89,7 +89,7 @@ public class LabelApi {
             Uri uri = new Uri.Builder().scheme("http").authority("api.foodessentials.com")
                     .path("labelarray").appendQueryParameter("u", upc)
                     .appendQueryParameter("sid", mSession.mSessionID)
-                    .appendQueryParameter("n",""+1)
+                    .appendQueryParameter("n",""+3)
                     .appendQueryParameter("s",""+0)
                     .appendQueryParameter("f", Utils.FORMAT)
                     .appendQueryParameter("api_key", Utils.API_KEY)

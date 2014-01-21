@@ -6,6 +6,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -46,16 +47,22 @@ public class ProductFragmentListAdapter extends BaseAdapter {
 
         if (view == null) {
 
-            row = new ProductFragmentRowItemView(mContext, null);
+            row = new ProductFragmentRowItemView(mContext);
         } else {
             row = (ProductFragmentRowItemView) view;
 
         }
+
         row.mCompanyName.setText(mProductList.get(i).mCompanyName);
+
         row.mFoodCategory.setText(mProductList.get(i).mFoodCategory);
         row.mProductName.setText(mProductList.get(i).mProductName);
         row.mCompanyName.setText(mProductList.get(i).mCompanyName);
         row.mServingSize.setText(mProductList.get(i).mServingSize);
+        if (mProductList.get(i).mContainsGluten == false) {
+            row.mGlutenImageView.setVisibility(View.VISIBLE);
+        }
         return row;
     }
+
 }

@@ -7,11 +7,11 @@ import java.util.List;
  */
 public class Product {
 
-    public List<Nutrient> mNutrients;
+    private List<Nutrient> mNutrients;
 
-    public List<Allergen> mAllergens;
+    private List<Allergen> mAllergens;
 
-    public List<Additives> mAdditives;
+    private List<Additives> mAdditives;
 
     public String mCompanyName;
 
@@ -20,10 +20,30 @@ public class Product {
     public String mProductName;
 
     public String mFoodCategory;
+    public boolean mContainsGluten;
 
 
+    public List<Additives> getAdditives() {
+        return mAdditives;
+    }
 
+    public void setAdditives(List<Additives> additives) {
+        mAdditives = additives;
+    }
 
+    public List<Allergen> getAllergens() {
+        return mAllergens;
+    }
 
+    public void setAllergens(List<Allergen> allergens) {
+        mAllergens = allergens;
+    }
 
+    public List<Nutrient> getNutrients() {
+        return mNutrients;
+    }
+
+    public void setNutrients(List<Nutrient> nutrients) {
+        mNutrients = nutrients;
+    }
 }

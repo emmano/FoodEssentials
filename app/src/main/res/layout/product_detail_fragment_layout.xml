@@ -3,14 +3,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
-        >
+              android:layout_height="match_parent">
 
-    <ListView
+    <ExpandableListView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/product_fragment_list_view"
-            />
-
-
+            android:layout_height="wrap_content"
+            android:id="@+id/product_fragment_details_expandable_list_view" android:layout_gravity="center_horizontal"/>
 </LinearLayout>

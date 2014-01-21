@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FoodEssentialsActivity extends Activity implements LabelSessionCallback,
-        ScanFragment.INotifyActivityProductsParsed {
+        ScanFragment.INotifyActivityProductsParsed, UserFoodFragment.ILoadDetailsFragment {
 
     private DrawerLayout mDrawerLayout;
 
@@ -37,6 +37,8 @@ public class FoodEssentialsActivity extends Activity implements LabelSessionCall
     private CharSequence mDrawerTitle;
 
     static public LabelApi LABEL_API;
+
+    List<DrawerRowItem> modelList;
 
     @Override
     public void setTitle(CharSequence title) {
@@ -52,7 +54,7 @@ public class FoodEssentialsActivity extends Activity implements LabelSessionCall
         LABEL_API.createSession("Emmanuel_o", this);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer);
         mDrawerList = (ListView) findViewById(R.id.left_drawer_list);
-        List<DrawerRowItem> modelList = new ArrayList<DrawerRowItem>(3);
+        modelList = new ArrayList<DrawerRowItem>(3);
         final DrawerRowItem rowItem1 = new DrawerRowItem("My Ingredients", R.drawable.ic_drawer);
         final DrawerRowItem rowItem2 = new DrawerRowItem("My Something", R.drawable.ic_drawer);
         final DrawerRowItem rowItem3 = new DrawerRowItem("My Ingredients", R.drawable.ic_drawer);
@@ -60,7 +62,7 @@ public class FoodEssentialsActivity extends Activity implements LabelSessionCall
         modelList.add(rowItem2);
         modelList.add(rowItem3);
 
-        mDrawerList.setAdapter(new DrawerListAdapter(this, modelList));
+
 
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.ic_drawer,
                 R.string.drawer_open, R.string.drawer_close) {
@@ -81,7 +83,7 @@ public class FoodEssentialsActivity extends Activity implements LabelSessionCall
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
         mTitle = mDrawerTitle = getTitle();
-        mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+        //   mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
                     .add(R.id.container, new ScanFragment(), "Fragment")
@@ -97,7 +99,7 @@ public class FoodEssentialsActivity extends Activity implements LabelSessionCall
             DrawerListViewHeader header = new DrawerListViewHeader(this, null);
             header.mUserName.setText(session.mUserID);
             mDrawerList.addHeaderView(header);
-
+            mDrawerList.setAdapter(new DrawerListAdapter(this, modelList));
         }
     }
 
@@ -154,8 +156,16 @@ public class FoodEssentialsActivity extends Activity implements LabelSessionCall
                 .addToBackStack("AddingFoodFragment").commit();
     }
 
+    @Override
+    public void onLoadDetailsFragment(Product product) {
+        getFragmentManager().beginTransaction()
+                .replace(R.id.container, new ProductDetailsFragment(product),
+                        "ProductDetailFragment").addToBackStack("AddingProductDetailFragment")
+                .commit();
+    }
 
-    private class DrawerItemClickListener
+
+    /*private class DrawerItemClickListener
             implements android.widget.AdapterView.OnItemClickListener {
 
         @Override
@@ -164,5 +174,5 @@ public class FoodEssentialsActivity extends Activity implements LabelSessionCall
         }
 
 
-    }
+    }*/
 }

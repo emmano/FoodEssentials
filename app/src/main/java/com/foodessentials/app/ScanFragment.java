@@ -33,8 +33,7 @@ public class ScanFragment extends Fragment implements LabelApiCallback, View.OnC
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setHasOptionsMenu(true);
-
+        // setHasOptionsMenu(true);
 
     }
 
@@ -48,11 +47,14 @@ public class ScanFragment extends Fragment implements LabelApiCallback, View.OnC
 
         if (intentResult != null) {
 
-            Toast.makeText(getActivity(), "" + intentResult.getContents(), Toast.LENGTH_LONG)
-                    .show();
+            //Toast.makeText(getActivity(), "" + intentResult.getContents(), Toast.LENGTH_LONG)
+            //        .show();
             Log.d("UPC", "" + intentResult.getContents());
-            FoodEssentialsActivity.LABEL_API.getLabelReference()
-                    .labelArray(intentResult.getContents(), this);
+          FoodEssentialsActivity.LABEL_API.getLabelReference()
+                   .labelArray(intentResult.getContents(), this);
+
+         //  FoodEssentialsActivity.LABEL_API.getLabelReference()
+           //        .labelArray("04809702", this);
 
         } else {
 
@@ -67,7 +69,7 @@ public class ScanFragment extends Fragment implements LabelApiCallback, View.OnC
             Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.scan_fragment_layout, container, false);
         ImageButton btn = (ImageButton) rootView.findViewById(R.id.scan_me_button);
-        AlphaAnimation animation = new AlphaAnimation(0.5f,1.0f);
+        AlphaAnimation animation = new AlphaAnimation(0.5f, 1.0f);
         animation.setDuration(1000);
         animation.setRepeatMode(Animation.REVERSE);
         animation.setRepeatCount(Animation.INFINITE);
@@ -86,10 +88,11 @@ public class ScanFragment extends Fragment implements LabelApiCallback, View.OnC
     @Override
     public void onResult(JSONObject object, String error) {
         if (error == null) {
-            Toast.makeText(getActivity(), object.toString(), Toast.LENGTH_LONG).show();
-            List<Product> products= ProductParser.parseProduct(object);
-            ((INotifyActivityProductsParsed)getActivity()).onProductsParsed(products);
-            Toast.makeText(getActivity(),products.get(0).mNutrients.get(0).nutrientName,Toast.LENGTH_LONG).show();
+       //     Toast.makeText(getActivity(), object.toString(), Toast.LENGTH_LONG).show();
+            List<Product> products = ProductParser.parseProduct(object);
+            ((INotifyActivityProductsParsed) getActivity()).onProductsParsed(products);
+           // Toast.makeText(getActivity(), products.get(0).mNutrients.get(0).nutrientName,
+              //      Toast.LENGTH_LONG).show();
             Log.e("RESULT", object.toString());
         } else {
             Log.e("ERROR", error);
@@ -111,7 +114,8 @@ public class ScanFragment extends Fragment implements LabelApiCallback, View.OnC
         }
     }
 
-    interface INotifyActivityProductsParsed{
+    interface INotifyActivityProductsParsed {
+
         public void onProductsParsed(List<Product> productList);
     }
 }

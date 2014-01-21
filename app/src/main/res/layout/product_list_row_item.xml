@@ -4,18 +4,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/activity_vertical_margin"
+
         >
 
-    <ImageButton
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:id="@+id/user_food_fragment_image_button" android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true" android:layout_alignParentStart="true"
-            android:src="@drawable/add_icon"
-            android:background="#00FFFFFF"
-            android:layout_margin="@dimen/activity_vertical_margin"
-
-            />
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -51,5 +42,25 @@
             android:layout_below="@+id/user_food_fragment_product_name"
             android:layout_alignLeft="@+id/user_food_fragment_product_name"
             android:layout_alignStart="@+id/user_food_fragment_product_name"/>
+    <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:id="@+id/user_food_fragment_image_button" android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true" android:layout_alignParentStart="true"
+            android:src="@drawable/add_icon"
+            android:background="#00FFFFFF"
+            android:layout_margin="@dimen/activity_vertical_margin"
+
+            />
+    <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:id="@+id/user_food_fragment_gluten_free"
+            android:visibility="invisible"
+
+            android:src="@drawable/gluten_free"
+            android:layout_alignBottom="@+id/user_food_fragment_product_category"
+            android:layout_alignParentRight="true" android:layout_alignParentEnd="true"/>
+
 
 </RelativeLayout>

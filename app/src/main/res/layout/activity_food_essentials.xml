@@ -2,7 +2,8 @@
                                         xmlns:tools="http://schemas.android.com/tools"
                                         android:layout_height="match_parent"
                                         android:layout_width="match_parent"
-                                        android:id="@+id/drawer">
+                                        android:id="@+id/drawer"
+                                        >
 
     <!-- Main Section-->
 
@@ -19,7 +20,8 @@
             android:layout_gravity="start"
             android:layout_height="match_parent"
             android:id="@+id/left_drawer_list"
-            android:background="#FFF"/>
+            android:background="#FFF"
+           />
 
 </android.support.v4.widget.DrawerLayout>
 
