@@ -4,9 +4,10 @@ import com.foodessentials.R;
 import com.foodessentials.labelapi.LabelApi;
 import com.foodessentials.labelapi.session.LabelSessionCallback;
 import com.foodessentials.labelapi.session.Session;
+import com.foodessentials.utils.labelapi.Product;
 import com.foodessentials.widget.DrawerListAdapter;
-import com.foodessentials.widget.DrawerListViewHeader;
-import com.foodessentials.widget.DrawerRowItem;
+import com.foodessentials.view.DrawerListViewHeader;
+import com.foodessentials.widget.model.DrawerRowItem;
 
 import android.app.Activity;
 import android.content.res.Configuration;
@@ -22,7 +23,8 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FoodEssentialsActivity extends Activity implements LabelSessionCallback {
+public class FoodEssentialsActivity extends Activity implements LabelSessionCallback,
+        ScanFragment.INotifyActivityProductsParsed {
 
     private DrawerLayout mDrawerLayout;
 
@@ -57,7 +59,6 @@ public class FoodEssentialsActivity extends Activity implements LabelSessionCall
         modelList.add(rowItem1);
         modelList.add(rowItem2);
         modelList.add(rowItem3);
-
 
         mDrawerList.setAdapter(new DrawerListAdapter(this, modelList));
 
@@ -144,6 +145,13 @@ public class FoodEssentialsActivity extends Activity implements LabelSessionCall
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onProductsParsed(List<Product> productList) {
+        getFragmentManager().beginTransaction()
+                .replace(R.id.container, new UserFoodFragment(productList), "UserFoodFragment")
+                .addToBackStack("AddingFoodFragment").commit();
     }
 
 

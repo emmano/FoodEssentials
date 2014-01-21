@@ -1,11 +1,12 @@
 package com.foodessentials.app;
 
+
 import com.foodessentials.R;
 import com.foodessentials.labelapi.api.LabelApiCallback;
-import com.foodessentials.utils.zxing.IntentIntegrator;
-import com.foodessentials.utils.zxing.IntentResult;
 import com.foodessentials.utils.labelapi.Product;
 import com.foodessentials.utils.labelapi.ProductParser;
+import com.foodessentials.utils.zxing.IntentIntegrator;
+import com.foodessentials.utils.zxing.IntentResult;
 
 import org.json.JSONObject;
 
@@ -20,6 +21,8 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import java.util.List;
 
 /**
  * Created by ortiguelae on 1/18/14.
@@ -50,6 +53,7 @@ public class ScanFragment extends Fragment implements LabelApiCallback, View.OnC
             Log.d("UPC", "" + intentResult.getContents());
             FoodEssentialsActivity.LABEL_API.getLabelReference()
                     .labelArray(intentResult.getContents(), this);
+
         } else {
 
             Toast.makeText(getActivity(), "FAIL", Toast.LENGTH_LONG).show();
@@ -83,8 +87,9 @@ public class ScanFragment extends Fragment implements LabelApiCallback, View.OnC
     public void onResult(JSONObject object, String error) {
         if (error == null) {
             Toast.makeText(getActivity(), object.toString(), Toast.LENGTH_LONG).show();
-            Product product= ProductParser.parseProduct(object);
-            Toast.makeText(getActivity(),product.mNutrients.get(0).nutrientName,Toast.LENGTH_LONG).show();
+            List<Product> products= ProductParser.parseProduct(object);
+            ((INotifyActivityProductsParsed)getActivity()).onProductsParsed(products);
+            Toast.makeText(getActivity(),products.get(0).mNutrients.get(0).nutrientName,Toast.LENGTH_LONG).show();
             Log.e("RESULT", object.toString());
         } else {
             Log.e("ERROR", error);
@@ -98,12 +103,15 @@ public class ScanFragment extends Fragment implements LabelApiCallback, View.OnC
             case R.id.scan_me_button:
                 IntentIntegrator integrator = new IntentIntegrator(getActivity());
                 integrator.initiateScan();
-
                 break;
             default:
                 break;
 
 
         }
+    }
+
+    interface INotifyActivityProductsParsed{
+        public void onProductsParsed(List<Product> productList);
     }
 }

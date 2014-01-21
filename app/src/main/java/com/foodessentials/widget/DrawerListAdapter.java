@@ -1,6 +1,7 @@
 package com.foodessentials.widget;
 
-import com.foodessentials.labelapi.LabelApi;
+import com.foodessentials.view.DrawerRowItemView;
+import com.foodessentials.widget.model.DrawerRowItem;
 
 import android.content.Context;
 import android.view.View;

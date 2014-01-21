@@ -13,5 +13,17 @@ public class Product {
 
     public List<Additives> mAdditives;
 
+    public String mCompanyName;
+
+    public String mServingSize;
+
+    public String mProductName;
+
+    public String mFoodCategory;
+
+
+
+
+
 
 }

@@ -1,4 +1,4 @@
-package com.foodessentials.widget;
+package com.foodessentials.widget.model;
 
 /**
  * Created by ortiguelae on 1/19/14.
