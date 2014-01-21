@@ -1,12 +1,12 @@
 package com.foodessentials.widget;
 
 import com.foodessentials.utils.labelapi.Product;
+import com.foodessentials.view.ProductFragmentRowItemView;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Toast;
 
 import java.util.List;
 

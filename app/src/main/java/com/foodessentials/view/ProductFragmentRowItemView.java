@@ -1,4 +1,4 @@
-package com.foodessentials.widget;
+package com.foodessentials.view;
 
 import com.foodessentials.R;
 

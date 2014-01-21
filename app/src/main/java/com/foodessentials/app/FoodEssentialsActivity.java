@@ -96,7 +96,7 @@ public class FoodEssentialsActivity extends Activity implements LabelSessionCall
     @Override
     public void response(Session session, String error) {
         if (session.mSessionID != null) {
-            DrawerListViewHeader header = new DrawerListViewHeader(this, null);
+            DrawerListViewHeader header = new DrawerListViewHeader(this);
             header.mUserName.setText(session.mUserID);
             mDrawerList.addHeaderView(header);
             mDrawerList.setAdapter(new DrawerListAdapter(this, modelList));

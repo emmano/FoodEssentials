@@ -16,8 +16,8 @@ public class DrawerListViewHeader extends RelativeLayout {
 
    public TextView mUserName;
 
-    public DrawerListViewHeader(Context context, AttributeSet attrs) {
-        super(context, attrs);
+    public DrawerListViewHeader(Context context) {
+        super(context);
         init();
     }
 

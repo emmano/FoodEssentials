@@ -1,4 +1,4 @@
-package com.foodessentials.widget;
+package com.foodessentials.view;
 
 
 
@@ -18,8 +18,8 @@ public class ProductDetailGroupView extends LinearLayout {
 
     public TextView groupTextView;
 
-    public ProductDetailGroupView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+    public ProductDetailGroupView(Context context) {
+        super(context);
         init();
     }
 

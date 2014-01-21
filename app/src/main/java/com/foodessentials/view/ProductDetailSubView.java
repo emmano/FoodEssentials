@@ -1,4 +1,4 @@
-package com.foodessentials.widget;
+package com.foodessentials.view;
 
 
 
@@ -18,8 +18,8 @@ public class ProductDetailSubView extends RelativeLayout {
     public TextView mTextViewAAN;
     public TextView mTexViewQuantity;
 
-    public ProductDetailSubView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+    public ProductDetailSubView(Context context) {
+        super(context);
         init();
     }
 

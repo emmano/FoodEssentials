@@ -45,7 +45,7 @@ public class DrawerListAdapter extends BaseAdapter {
 
         if (view == null) {
 
-            row = new DrawerRowItemView(mContext, null);
+            row = new DrawerRowItemView(mContext);
 
         }
       else {

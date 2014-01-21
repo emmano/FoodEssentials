@@ -4,6 +4,8 @@ import com.foodessentials.utils.labelapi.Additives;
 import com.foodessentials.utils.labelapi.Allergen;
 import com.foodessentials.utils.labelapi.Nutrient;
 import com.foodessentials.utils.labelapi.Product;
+import com.foodessentials.view.ProductDetailGroupView;
+import com.foodessentials.view.ProductDetailSubView;
 
 import android.content.Context;
 import android.view.View;
@@ -97,7 +99,7 @@ public class ProductDetailsExpandableListAdapter extends BaseExpandableListAdapt
 
         if (view == null) {
 
-            row = new ProductDetailGroupView(mContext, null);
+            row = new ProductDetailGroupView(mContext);
 
         } else {
 
@@ -127,7 +129,7 @@ public class ProductDetailsExpandableListAdapter extends BaseExpandableListAdapt
 
         if (view == null) {
 
-            row = new ProductDetailSubView(mContext, null);
+            row = new ProductDetailSubView(mContext);
 
         } else {
 

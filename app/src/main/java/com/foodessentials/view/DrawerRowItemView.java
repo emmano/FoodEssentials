@@ -17,8 +17,8 @@ public class DrawerRowItemView extends LinearLayout {
 
     public ImageView mImageView;
     public TextView mTextView;
-    public DrawerRowItemView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+    public DrawerRowItemView(Context context) {
+        super(context);
         init();
     }
 
