@@ -46,9 +46,9 @@ public class ProductDetailsExpandableListAdapter extends BaseExpandableListAdapt
             case 0:
                 return ((List<Nutrient>) productContents[i]).size();
             case 1:
-                return ((List<Nutrient>) productContents[i]).size();
+                return ((List<Additive>) productContents[i]).size();
             case 2:
-                return ((List<Nutrient>) productContents[i]).size();
+                return ((List<Allergen>) productContents[i]).size();
             default:
                 return -1;
         }
