@@ -43,18 +43,12 @@ public class ProductFragmentListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        ProductFragmentRowItemView row;
-
-        if (view == null) {
-
+        ProductFragmentRowItemView row = (ProductFragmentRowItemView) view;
+        if (row == null) {
             row = new ProductFragmentRowItemView(mContext);
-        } else {
-            row = (ProductFragmentRowItemView) view;
-
         }
-
+        
         row.mCompanyName.setText(mProductList.get(i).mCompanyName);
-
         row.mFoodCategory.setText(mProductList.get(i).mFoodCategory);
         row.mProductName.setText(mProductList.get(i).mProductName);
         row.mCompanyName.setText(mProductList.get(i).mCompanyName);
